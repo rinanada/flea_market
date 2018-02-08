@@ -3,8 +3,8 @@ class CreateExhibits < ActiveRecord::Migration[5.0]
     create_table :exhibits do |t|
 
       t.timestamps
-      t.integer :e_user_id, index: true
-      t.references :book
+      t.references :user, index: true
+      t.references :book, index: true
     end
   end
 end
