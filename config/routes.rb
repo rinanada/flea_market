@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
     }
 
-  resources :exhibits, only: [:new, :create] do
-    resources :books, only: [:show]
+  resources :books, only: [:show] do
+    resources :exhibits, only: [:new, :create]
   end
   resources :orders, only: [:new, :create, :show]
 
