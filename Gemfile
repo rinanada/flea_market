@@ -22,12 +22,16 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # login
 gem 'devise'
-gem 'omniauth', '<1.3.2'
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+# debug
+gem 'pry-byebug'
+gem 'rb-readline'
+
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'byebug'
 end
 
 group :development do
