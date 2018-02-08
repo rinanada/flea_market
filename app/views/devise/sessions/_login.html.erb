@@ -1,4 +1,4 @@
-<form id="login-form">
+<%= form_for(resource, as: resource_name, html: {id: 'login-form'}, url: session_path(resource_name)) do |f| %>
   <div class="modal-body pb-5">
     <h4 class="text-center heading mt-10 mb-20">ログイン</h4>
     <button class="btn btn-facebook btn-block">Facebookでログイン</button>
@@ -6,10 +6,10 @@
       <span>or</span>
     </div>
     <div class="form-group">
-      <input id="login_username" class="form-control" placeholder="ユーザーネーム" type="text">
+      <%= f.email_field :email, id: "login_username", class: "form-control", placeholder: "Emailアドレス" %>
     </div>
     <div class="form-group">
-      <input id="login_password" class="form-control" placeholder="パスワード" type="password">
+      <%= f.password_field :password, id: "login_password", class: "form-control", placeholder: "パスワード", type: "password" %>
     </div>
     <div class="form-group">
       <div class="row gap-5">
@@ -39,4 +39,4 @@
       <button id="login_register_btn" type="button" class="btn btn-link">こちら</button>
     </div>
   </div>
-</form>
+<% end %>

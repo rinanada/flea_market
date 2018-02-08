@@ -45,6 +45,8 @@
                 <div class="pull-right">
                   <div class="navbar-mini">
                     <ul class="clearfix">
+
+                      <% if user_signed_in? %>
                       <li class="dropdown bt-dropdown-click hidden-xs">
                         <a id="currncy-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                           <i class="ion-android-settings hidden-xss"></i> メニュー
@@ -52,11 +54,18 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
                           <li><a href="#">マイページ</a></li>
-                          <li><a href="#">ログアウト</a></li>
+                          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                         </ul>
                       </li>
+
+                      <% end %>
+
                       <li class="user-action">
-                        <a data-toggle="modal" href="#loginModal" class="btn">ログイン／新規登録</a>
+                        <% if user_signed_in? %>
+                          <a data-toggle="modal" href="#loginModal" class="btn">aaa</a>
+                        <% else %>
+                          <a data-toggle="modal" href="#loginModal" class="btn">ログイン／新規登録</a>
+                        <% end %>
                       </li>
                     </ul>
                   </div>
