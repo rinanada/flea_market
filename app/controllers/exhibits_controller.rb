@@ -1,19 +1,18 @@
 class ExhibitsController < ApplicationController
+  before_action :book_params, only:[:create]
+
   def new
     @book = Book.new
   end
 
   def create
-    binding.pry
-    @book = Book.create(title: book_params[:title])
-    @exhibit = current_user.exhibits.build(book_params)
-    redirect_to root_path
-    # Book.create
+    @book = Book.create(book_params)
+    e = Exhibit.create(user_id: current_user.id, book_id: @book.id)
   end
 
   private
   def book_params
-    params.permit(:title)
+    params.require(:book).permit(:title)
   end
 
 end
