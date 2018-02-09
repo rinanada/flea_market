@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
-  has_one :book
+  belongs_to :book, optional: true
 end

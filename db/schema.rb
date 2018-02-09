@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208052557) do
+ActiveRecord::Schema.define(version: 20180209084300) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                null: false
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20180208052557) do
     t.text     "description", limit: 65535
     t.string   "content"
     t.string   "sold?"
-    t.integer  "order_id"
-    t.index ["order_id"], name: "index_books_on_order_id", using: :btree
   end
 
   create_table "exhibits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180208052557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "book_id"
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 

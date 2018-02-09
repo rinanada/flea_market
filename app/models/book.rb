@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   has_one :exhibit
-  belongs_to :order, optional: true
+  has_one :order
 
   mount_uploader :content, BookUploader
 end
