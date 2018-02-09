@@ -7,7 +7,7 @@ class ExhibitsController < ApplicationController
 
   def create
     @book = Book.create(book_params)
-    e = Exhibit.create(user_id: current_user.id, book_id: @book.id)
+    Exhibit.create(user_id: current_user.id, book_id: @book.id)
   end
 
   private
