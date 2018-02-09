@@ -55,6 +55,7 @@
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
                           <li><a href="#">マイページ</a></li>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "出品する", new_exhibit_path %></li>
                         </ul>
                       </li>
 
@@ -133,31 +134,9 @@
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
             <div class="GridLex-grid-noGutter-equalHeight">
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book1.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>デザイン</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>ランディングページメソッド・デザインメソッド</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
+              <%= render partial: 'books/book' ,collection: @books %>
+
+<!--               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
                     <div class="image">
@@ -181,6 +160,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -205,6 +185,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -229,6 +210,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -253,6 +235,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -277,6 +260,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -301,6 +285,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="GridLex-col-3_sm-4_xs-12 mb-30">
                 <div class="package-grid-item">
                   <a href="detail-page.html">
@@ -324,7 +309,8 @@
                     </div>
                   </a>
                 </div>
-              </div>
+              </div> -->
+
             </div>
           </div>
         </div>

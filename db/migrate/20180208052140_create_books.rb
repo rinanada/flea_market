@@ -9,6 +9,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :content
       t.string :sold?
+      t.references :order
     end
   end
 end
