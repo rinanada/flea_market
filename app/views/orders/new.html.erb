@@ -6,8 +6,7 @@
       <div class="container">
         <ol class="breadcrumb-list booking-step">
           <li><a href="">トップページ</a></li>
-          <li><a href="#">検索結果</a></li>
-          <li><a href="#">詳細画面</a></li>
+          <li><%= link_to "詳細画面", book_path(@book.id)%></li>
           <li><span>お支払い</span></li>
           <li><span>完了</span></li>
         </ol>
@@ -16,74 +15,9 @@
     <div class="content-wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 visible-xs mb-50">
-            <div class="price-summary-wrapper">
-              <h4 class="heading mt-0 text-primary uppercase">注文内容</h4>
-              <ul class="price-summary-list">
-                <li>
-                  <h6 class="heading mt-0 mb-0">ランディングページ・デザインメソッド</h6>
-                  <p class="font12 text-light">デザイン</p>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <h6 class="heading mt-20 mb-5 text-primary uppercase">価格内訳</h6>
-                  <div class="row gap-10 mt-10">
-                    <div class="col-xs-7 col-sm-7">
-                      本体価格
-                    </div>
-                    <div class="col-xs-5 col-sm-5 text-right">
-                      1200円
-                    </div>
-                  </div>
-                  <div class="row gap-10 mt-10">
-                    <div class="col-xs-7 col-sm-7">
-                      送料
-                    </div>
-                    <div class="col-xs-5 col-sm-5 text-right">
-                      200円
-                    </div>
-                  </div>
-                  <div class="row gap-10 mt-10">
-                    <div class="col-xs-7 col-sm-7">
-                      消費税
-                    </div>
-                    <div class="col-xs-5 col-sm-5 text-right">
-                      96円
-                    </div>
-                  </div>
-                </li>
-                <li class="divider"></li>
-                <li class="text-right font600 font14">
-                  1296円
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <div class="row gap-10 font600 font14">
-                    <div class="col-xs-9 col-sm-9">
-                      購入点数
-                    </div>
-                    <div class="col-xs-3 col-sm-3 text-right">
-                      1
-                    </div>
-                  </div>
-                </li>
-                <li class="total-price">
-                  <div class="row gap-10">
-                    <div class="col-xs-6 col-sm-6">
-                      <h5 class="heading mt-0 mb-0 text-white">Amount due</h5>
-                      <p class="font12">合計金額</p>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5">1200円</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
           <div class="col-sm-8 col-md-9" role="main">
             <div class="section-title text-left">
-              <h3>ランディングページ・デザインメソッド<small>を購入します。</small></h3>
+              <h3><%= @book.title %><small>を購入します。</small></h3>
             </div>
             <div class="payment-container">
               <form>
@@ -167,7 +101,7 @@
               <h4 class="heading mt-0 text-primary uppercase">注文内容</h4>
               <ul class="price-summary-list">
                 <li>
-                  <h6 class="heading mt-0 mb-0">ランディングページ・デザインメソッド</h6>
+                  <h6 class="heading mt-0 mb-0"><%= @book.title %></h6>
                   <p class="font12 text-light">デザイン</p>
                 </li>
                 <li class="divider"></li>
@@ -178,7 +112,7 @@
                       本体価格
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      1200円
+                      <%= @book.price %>円
                     </div>
                   </div>
                   <div class="row gap-10 mt-10">
@@ -194,13 +128,13 @@
                       消費税
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      96円
+                      <%= @tax.round %>円
                     </div>
                   </div>
                 </li>
                 <li class="divider"></li>
                 <li class="text-right font600 font14">
-                  1296円
+                  <%= @total_price.round %>円
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -220,7 +154,7 @@
                       <p class="font12">合計金額</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5">1200円</span>
+                      <span class="block font20 font600 mb-5"><%= @total_price.round %>円</span>
                     </div>
                   </div>
                 </li>
@@ -238,7 +172,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-3">
             <div class="footer-logo">
-              <img src="images/techbook_logo.png" alt="Logo" />
+              <img src="<%= asset_path "techbook_logo.png" %>" alt="Logo" />
             </div>
             <p class="footer-address">150-0000 東京都渋谷区道玄坂２丁目<br>新大宗ビル３号館８階<br/> <i class="fa fa-phone"></i> +66 28 878 5452 <br/> <i class="fa fa-phone"></i> +66 2 547 2223 <br/> <i class="fa fa-envelope-o"></i> <a href="#">support@techbook.com</a></p>
             <div class="footer-social">
