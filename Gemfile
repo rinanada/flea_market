@@ -30,6 +30,11 @@ gem 'omniauth-twitter'
 gem 'pry-byebug'
 gem 'rb-readline'
 
+# image_file
+gem 'carrierwave'
+gem 'carrierwave-aws'
+gem 'rmagick'
+
 group :development, :test do
   gem 'byebug'
 end
