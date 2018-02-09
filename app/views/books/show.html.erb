@@ -72,7 +72,7 @@
                       </div>
                     </div>
                     <div class="text-center pt-10">
-                      <a href="#" class="btn btn-primary btn-full-width">購入ページヘ</a>
+                      <%= link_to "購入ページへ", new_book_order_path(book_id: @book.id), class: "btn btn-primary btn-full-width"%>
                     </div>
                   </div>
                 </div>
