@@ -7,6 +7,7 @@ class ExhibitsController < ApplicationController
 
   def create
     @book = Book.create(book_params)
+    @book.update(sold?: "n")
     Exhibit.create(user_id: current_user.id, book_id: @book.id)
   end
 
@@ -14,6 +15,5 @@ class ExhibitsController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :sub_title, :price, :description, :content)
   end
-
 end
 
