@@ -92,7 +92,8 @@
             </div>
             <div class="row mt-20 clearfix">
               <div class="col-sm-12 col-md-12">
-                <button class="btn btn-primary">注文を確定する</button>
+                <!-- <button class="btn btn-primary">注文を確定する</button> -->
+                <%= link_to "注文を確定する", book_orders_path(@book),method: :post, class: "btn btn-primary"%>
               </div>
             </div>
           </div>
