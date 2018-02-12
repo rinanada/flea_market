@@ -3,22 +3,14 @@ function process(){
 
   result
   += '姓：' + document.fm.elements.user_lastname.value + '\n'
+  +'名：' + document.fm.elements.user_firstname.value + '\n'
+  + '郵便番号：' + document.fm.elements.user_postalcode.value + '\n'
 
-
-  // for (var i = 0; i < 5 ; i++){
-  //   result[i]
-  //   += user_detail[i]
-  //   + '：'
-  // }
-  result += '\nで変更します'
+  result += 'で変更します'
   window.alert(result);
   return false;
 }
 
-
-// document.fm.elements.user_lastname.value
-// document.fm.elements.user_firstname.value
-// document.fm.elements.user_postalcode.value
 
 
 
