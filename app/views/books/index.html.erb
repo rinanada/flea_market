@@ -53,7 +53,12 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><%= link_to "マイページ", user_path(current_user) %></li>
+
+                        <% if @user.lastname.present? %>
+                          <li><%= link_to "マイページ", edit_user_path(current_user) %></li>
+                        <% else %>
+                          <li><%= link_to "マイページ", new_user_path %></li>
+                        <% end %>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                           <li><%= link_to "出品する", new_exhibit_path %></li>
                         </ul>

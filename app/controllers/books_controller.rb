@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
   def index
+    if user_signed_in?
+      @user = User.find_by(id: current_user.id)
+    end
     @books = Book.all
   end
 
@@ -7,3 +10,4 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 end
+
