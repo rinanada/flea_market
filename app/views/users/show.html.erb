@@ -11,7 +11,7 @@
   <meta name="keywords" content="Ruby, Ruby on Rails, JavaScript, PHP, JAVA, デザイン, 技術書, プログラミング, 書籍" />
   <meta name="author" content="crenoveative">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="css/compiled.css" rel="stylesheet">
+  <link href="assets/compiled.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -21,12 +21,12 @@
   <!-- start Main Wrapper -->
   <div class="main-wrapper scrollspy-container">
     <!-- start end Page title -->
-    <div class="page-title" style="background-image:url('images/my_room.jpeg');">
+    <div class="page-title" style="background-image:url(<%= asset_path 'my_room.jpeg'%>);">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
             <h2 class="text-white">せきやじょうじ</h2>
-            <div class="user-thumbnail mb-10" style="background-image:url('images/sekiya.jpeg');">
+            <div class="user-thumbnail mb-10" style="background-image:url(<%= asset_path 'sekiya.jpeg'%>);">
             <!-- <img src="images/books/book9.jpg" alt="" class="user-thumbnail"> -->
             </div>
           </div>
@@ -129,50 +129,8 @@
                   <h4 class="sidebar-title">購入履歴</h4>
                   <div class="sidebar-module-inner">
                     <ul class="sidebar-post">
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book1.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>ランディングページ・デザインメソッド</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>June 01, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book2.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>すっきり分かるJAVA入門</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>April 25, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book3.jpeg" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>Learing PHP</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>March 20, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book4.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>パーフェクト Ruby on Rails</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>March 05, 2016</p>
-                          </div>
-                        </a>
-                      </li>
+                      <%= render partial: 'order_book', collection: @order_books %>
+
                     </ul>
                   </div>
                 </div>
@@ -227,7 +185,7 @@
   <!-- end Back To Top -->
 
   <!-- JS -->
-  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
