@@ -1,18 +1,26 @@
 function process(){
   var result = '';
-  var user_detail = ['姓', '名','郵便番号','住所',];
 
-  for (var i = 0; i < 4 ; i++){
-    result
-    += user_detail[i]
-    + '：'
-    + document.fm.elements[i].value
-    + '\n';
-  }
+  result
+  += '姓：' + document.fm.elements.user_lastname.value + '\n'
+
+
+  // for (var i = 0; i < 5 ; i++){
+  //   result[i]
+  //   += user_detail[i]
+  //   + '：'
+  // }
   result += '\nで変更します'
   window.alert(result);
   return false;
 }
+
+
+// document.fm.elements.user_lastname.value
+// document.fm.elements.user_firstname.value
+// document.fm.elements.user_postalcode.value
+
+
 
 
 // 姓：灘
