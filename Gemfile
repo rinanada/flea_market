@@ -29,6 +29,8 @@ gem 'omniauth-twitter'
 # debug
 gem 'pry-byebug'
 gem 'rb-readline'
+gem 'hirb'
+gem 'hirb-unicode'
 
 # image_file
 gem 'carrierwave'
