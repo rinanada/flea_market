@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @order_books = Order.includes(:book).where(user_id: current_user.id)
+    @orders = Order.includes(:book).where(user_id: current_user.id)
+    @exhibits = Exhibit.includes(:book).where(user_id: current_user.id)
   end
 end
