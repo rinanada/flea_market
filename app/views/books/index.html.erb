@@ -29,6 +29,7 @@
   <!-- END # MODAL LOGIN -->
   <!-- start Container Wrapper -->
   <div class="container-wrapper">
+
     <!-- start Header -->
     <header id="header">
       <!-- start Navbar (Header) -->
@@ -80,11 +81,19 @@
             </div>
           </div>
         </div>
-        <div id="slicknav-mobile"></div>
+        <div id="slicknav-mobile">
+        </div>
       </nav>
       <!-- end Navbar (Header) -->
     </header>
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+       <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     <div class="clear"></div>
+
     <!-- start Main Wrapper -->
     <div class="main-wrapper">
       <!-- start hero-header with windows height -->
