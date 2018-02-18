@@ -54,10 +54,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
 
-                        <% if @user.lastname.present? %>
-                          <li><%= link_to "マイページ", edit_user_path(current_user) %></li>
+                        <% if @user_detail.present? %>
+                          <li><%= link_to "マイページ", edit_user_detail_path(current_user) %></li>
                         <% else %>
-                          <li><%= link_to "マイページ", new_user_path %></li>
+                          <li><%= link_to "マイページ", new_user_detail_path %></li>
                         <% end %>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                           <li><%= link_to "出品する", new_exhibit_path %></li>
@@ -68,9 +68,9 @@
 
                       <li class="user-action">
                         <% if user_signed_in? %>
-                          <a data-toggle="modal" href="#loginModal" class="btn">aaa</a>
+                          <a data-toggle="modal" href="#loginModal" class="btn"><%= @mastname %></a>
                         <% else %>
-                          <a data-toggle="modal" href="#loginModal" class="btn">ログイン／新規登録</a>
+                          <a data-toggle="modal" href="#loginModal" class="btn"><%= @mastname %></a>
                         <% end %>
                       </li>
                     </ul>
