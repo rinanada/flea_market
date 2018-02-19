@@ -1818,7 +1818,9 @@ a.top-destination-image-bg {
 }
 
 .package-grid-item .absolute-in-image .duration {
-    padding: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    float: right;
 }
 
 .package-grid-item .absolute-in-image .duration span {
