@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     else
       @mastname  = 'ログイン/新規登録'
     end
-    @books = Book.all
+    @books = Book.page(params[:page]).per(4)
   end
 
   def show
