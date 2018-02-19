@@ -8,7 +8,11 @@ class UserDetailsController < ApplicationController
 
   def create
     @user_detail = UserDetail.create(user_detail_params)
-    redirect_to root_path
+    if @user_detail.save
+      redirect_to root_path, notice: 'Your profile was successfully created'
+    else
+      flash.now[:alert] = 'Your profile was unsuccessfully created'
+    end
   end
 
   def edit
@@ -16,7 +20,9 @@ class UserDetailsController < ApplicationController
 
   def update
     if @user_detail.update(user_detail_params)
-      redirect_to root_path
+      redirect_to root_path, notice: 'Your profile was successfully updated'
+    else
+      flash.now[:alert] = 'Your profile was unsuccessfully updated'
     end
   end
 
