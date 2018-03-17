@@ -4,6 +4,11 @@
         <%= link_to image_tag(book.content),book_path(book) %>
         <div class="absolute-in-image">
           <div class="duration"><span>デザイン</span></div>
+          <% if book.sold? == "y" %>
+            <div class="sold_out_image" >
+            <img src= "assets/sold.png" >
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="content clearfix">
