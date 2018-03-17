@@ -3,8 +3,8 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :orders do |t|
 
       t.timestamps
-      t.integer :o_user_id, index: true
-      t.references :book
+      t.references :user, index: true
+      t.references :book, index: true
     end
   end
 end

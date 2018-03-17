@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <body>
-  <div id="introLoader" class="introLoading"></div>
+  <!-- <div id="introLoader" class="introLoading"></div> -->
   <!-- BEGIN # MODAL LOGIN -->
   <div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -29,6 +29,7 @@
   <!-- END # MODAL LOGIN -->
   <!-- start Container Wrapper -->
   <div class="container-wrapper">
+
     <!-- start Header -->
     <header id="header">
       <!-- start Navbar (Header) -->
@@ -53,8 +54,14 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><a href="#">マイページ</a></li>
+
+                        <% if @user_detail.present? %>
+                          <li><%= link_to "マイページ", edit_user_detail_path(current_user) %></li>
+                        <% else %>
+                          <li><%= link_to "マイページ", new_user_detail_path %></li>
+                        <% end %>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "出品する", new_exhibit_path %></li>
                         </ul>
                       </li>
 
@@ -62,9 +69,9 @@
 
                       <li class="user-action">
                         <% if user_signed_in? %>
-                          <a data-toggle="modal" href="#loginModal" class="btn">aaa</a>
+                          <a data-toggle="modal" href="#loginModal" class="btn"><%= @mastname %></a>
                         <% else %>
-                          <a data-toggle="modal" href="#loginModal" class="btn">ログイン／新規登録</a>
+                          <a data-toggle="modal" href="#loginModal" class="btn"><%= @mastname %></a>
                         <% end %>
                       </li>
                     </ul>
@@ -74,11 +81,19 @@
             </div>
           </div>
         </div>
-        <div id="slicknav-mobile"></div>
+        <div id="slicknav-mobile">
+        </div>
       </nav>
       <!-- end Navbar (Header) -->
     </header>
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+       <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     <div class="clear"></div>
+
     <!-- start Main Wrapper -->
     <div class="main-wrapper">
       <!-- start hero-header with windows height -->
@@ -133,199 +148,11 @@
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
             <div class="GridLex-grid-noGutter-equalHeight">
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book1.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>デザイン</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>ランディングページメソッド・デザインメソッド</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book2.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>JAVA</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>すっきりわかるJAVA入門</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="3.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book3.jpeg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>PHP</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>LeaningPHP5</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book4.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>Ruby on Rails</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>パーフェクトRuby on Rails</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book5.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>その他</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>テキストエディタAtom入門</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book6.jpeg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>Ruby on Rails</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>エンタープライズRails</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book7.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>JavaScript</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>ノンプログラマのためのJavaScript</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book8.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>デザイン</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>デザインの教室</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+
+              <%= render partial: 'books/book' ,collection: @books %>
+
             </div>
+            <%= paginate(@books) %>
           </div>
         </div>
       </section>
@@ -389,7 +216,7 @@
                     <img src="assets/testimonial-01.png" alt="yamane" />
                   </div>
                   <div class="content">
-                    <h4>山根祐亮</h4>
+                    <h4>山口創大</h4>
                     <h6>Railsエンジニア</h6>
                     <p>RubyやJavaScriptの本を買わせていただきました。自分がまだエンジニアとしての歴が浅くてお金に余裕がなかったころ、いつも人から借りて本を技術書でいたので、今こういったサービスで本を買うことができるエンジニアは幸せだと思います。</p>
                   </div>

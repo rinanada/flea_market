@@ -1,0 +1,11 @@
+<li class="clearfix">
+  <a href="blog-single.html">
+    <div class="image">
+     <%= image_tag exhibit.book.content %>
+    </div>
+    <div class="content">
+      <h6><%= exhibit.book.title %></h6>
+      <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i><%= exhibit.book.created_at.strftime("%B %d") %></p>
+    </div>
+  </a>
+</li>

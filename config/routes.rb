@@ -4,4 +4,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
     }
 
+  resources :books, only: [:show] do
+    resources :orders, only: [:new, :create]
+  end
+  resources :exhibits, only: [:new, :create]
+  resources :users, only: [:new]
+  resources :user_details, only: [:new, :create, :edit, :update]
 end

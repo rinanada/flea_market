@@ -1226,6 +1226,9 @@ ul.no-margin,
     left: 0;
     right: 0;
     top: 0;
+    .sold_out_image{
+        width: 160px;
+    }
 }
 
 @media only screen and (max-width: 1199px) {}
