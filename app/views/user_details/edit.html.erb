@@ -21,8 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-8">
-
-          <%= form_for @user_detail do |f|%>
+          <%= form_for @user_detail, url: { :action => 'create' }, html: { class: "payment-box", name: "fm", onsubmit: "return process()" } do |f| %>
             <div class="payment-header clearfix">
               <h5 class="heading mt-0">購入者情報</h5>
             </div>
