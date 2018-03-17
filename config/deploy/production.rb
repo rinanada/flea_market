@@ -59,8 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-role :web, *%w[
-  13.113.252.139
-]
-set :user, "sota"
-ssh_options[:keys] = %w(~/.ssh/key_rsa)
+server '13.113.252.139', user: 'sota', roles: %w{app db web} 
+
+set :ssh_options, user: "sota" , keys: '~/.ssh/fmarket_rsa' 
+

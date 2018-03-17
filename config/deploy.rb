@@ -1,8 +1,14 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.10.1"
+lock "3.10.1"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "flea_market"
+set :repo_url, "git@github.com:rinanada/flea_market.git"
+set :branch, "capistrano"
+set :deploy_to, "/var/www/rails/flea_market"
+set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :keep_releases, 5
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -38,67 +44,29 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 # capistranoのバージョン固定
-lock '3.4.0'
-
-# デプロイするアプリケーション名
-set :application, 'flea_market'
-
-# cloneするgitのレポジトリ
-set :repo_url, 'git@github.com:rinanada/flea_market'
-
-# deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, 'capistrano'
-
-# deploy先のディレクトリ。 
-set :deploy_to, '/var/www/rails/flea_market'
-
-# シンボリックリンクをはるファイル。(※後述)
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
-
-# シンボリックリンクをはるフォルダ。(※後述)
-#set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-
-# 保持するバージョンの個数(※後述)
-set :keep_releases, 5
-
-# rubyのバージョン
-#set :rbenv_ruby, '2.1.3'
-
-#出力するログのレベル。
-set :log_level, :debug
-
-namespace :deploy do
-  desc 'Restart application'
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-
-  desc 'Create database'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
-        end
-      end
-    end
-  end
-
-  desc 'Run seed'
-  task :seed do
-    on roles(:app) do
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:seed'
-        end
-      end
-    end
-  end
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-    end
-  end
-end
+# namespace :deploy do
+#  desc 'Restart application'
+#  end
+#
+#  desc 'Create database'
+#  task :db_create do
+#    on roles(:db) do |host|
+#      with rails_env: fetch(:rails_env) do
+#        within current_path do
+#          execute :bundle, :exec, :rake, 'db:create'
+#        end
+#      end
+#    end
+#  desc 'Run seed'
+#  task :seed do
+#    on roles(:app) do
+#      with rails_env: fetch(:rails_env) do
+#        within current_path do
+#          execute :bundle, :exec, :rake, 'db:seed'
+#    end
+#  after :restart, :clear_cache do
+#    on roles(:web), in: :groups, limit: 3, wait: 10 do
+#    end
+#  end
+#end
+#
