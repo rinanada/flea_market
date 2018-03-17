@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   resources :exhibits, only: [:new, :create]
   resources :users, only: [:new]
   resources :user_details, only: [:new, :create, :edit, :update]
+
+  namespace :books do
+    get "/database", to: "search#database"
+  end
 end
