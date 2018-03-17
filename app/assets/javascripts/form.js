@@ -1,15 +1,15 @@
-// function process(){
-//   var result = '';
+function process(){
+  var result = '';
 
-//   result
-//   += '姓：' + document.fm.elements.user_lastname.value + '\n'
-//   +'名：' + document.fm.elements.user_firstname.value + '\n'
-//   + '郵便番号：' + document.fm.elements.user_postalcode.value + '\n'
+  result
+  += '姓：' + document.fm.elements.user_lastname.value + '\n'
+  +'名：' + document.fm.elements.user_firstname.value + '\n'
+  + '郵便番号：' + document.fm.elements.user_postalcode.value + '\n'
 
-//   result += 'で変更します'
-//   window.alert(result);
-//   return false;
-// }
+  result += 'で変更します'
+  window.alert(result);
+  return false;
+}
 
 
 
