@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_one :order
 
   mount_uploader :content, BookUploader
+  acts_as_taggable_on :categories
 
   def tax
     (price + 200) * 0.08.round
