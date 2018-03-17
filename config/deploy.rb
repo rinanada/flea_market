@@ -3,7 +3,7 @@ lock "3.10.1"
 
 set :application, "flea_market"
 set :repo_url, "git@github.com:rinanada/flea_market.git"
-set :branch, "capistrano"
+set :branch, "master"
 set :deploy_to, "/var/www/rails/flea_market"
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
