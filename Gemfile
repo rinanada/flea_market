@@ -41,6 +41,7 @@ gem 'rmagick'
 
 group :development, :test do
   gem 'byebug'
+  gem "airbrussh", require: false
 end
 
 group :development do
