@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   namespace :books do
     get "/database", to: "search#database"
+    post "/database", to: "search#database"
   end
 end

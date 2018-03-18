@@ -109,7 +109,7 @@
           <div class="main-search-wrapper full-width">
 
             <div class="inner">
-              <%= form_tag books_database_path, method: :get do %>
+              <%= form_tag controller: "books/search",action: "database", method: "get" do %>
               <div class="column-item">
                 <div class="form-group">
                   <%= select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" } %>

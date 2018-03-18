@@ -8,7 +8,7 @@ class Books::SearchController < ApplicationController
   end
 
   private
-  def book_search
+  def books_search
     if params[:category].present?
       if params[:keyword].present?
         @books = Book.tagged_with(params[:category]).where("title LIKE %#{params[:keyword]}%", "%#{params[:keyword]}%")
