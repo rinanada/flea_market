@@ -2,7 +2,6 @@ class Books::SearchController < ApplicationController
   before_action :books_search
 
   def database
-    binding.pry
     @searcher = { category: params[:category], keyword: params[:keyword] }
     @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
   end
