@@ -41,7 +41,10 @@ gem 'rmagick'
 
 group :development, :test do
   gem 'byebug'
-  gem "airbrussh", require: false
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
