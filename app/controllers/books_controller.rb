@@ -9,6 +9,7 @@ class BooksController < ApplicationController
       @mastname  = 'ログイン/新規登録'
     end
     @books = Book.page(params[:page]).per(4)
+    @categories = ActsAsTaggableOn::Tag.most_used(7)
   end
 
   def show

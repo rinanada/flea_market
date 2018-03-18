@@ -13,7 +13,7 @@ class ExhibitsController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :sub_title, :price, :description, :content)
+    params.require(:book).permit(:title, :sub_title, :price, :description, :content, :category_list)
   end
 end
 

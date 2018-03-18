@@ -1,12 +1,13 @@
+
   <div class="clear"></div>
   <!-- start Main Wrapper -->
   <div class="main-wrapper">
     <!-- start end Page title -->
-    <div class="page-title" style="background-image:url(<%= asset_path 'books_on_desk2.jpg'%>);">
+    <div class="page-title" style="background-image:url('images/books_on_desk2.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-            <h1 class="hero-title">新規出品</h1>
+            <h1 class="hero-title">書籍一覧</h1>
           </div>
         </div>
       </div>
@@ -16,45 +17,80 @@
       <div class="container">
         <ol class="breadcrumb-list booking-step">
           <li><%= link_to "トップ", root_path %></li>
-          <li><span>新規出品</span></li>
+          <li><span>カテゴリ：<%= @searcher[:category] %></span>
+          </li>
         </ol>
       </div>
     </div>
     <div class="content-wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4 col-md-3">
+        <div class="col-sm-4 col-md-3" %>
+          <%= form_tag books_database_path, method: :get do %>
             <aside class="sidebar with-filter">
-              <%= form_for @book, url: exhibits_path, class: "sidebar-search-wrapper bg-light-2" do |f| %>
+              <div class="sidebar-search-wrapper bg-light-2">
                 <div class="sidebar-search-header">
-                  <h4>出品内容</h4>
+                  <h4>再検索</h4>
                 </div>
-                <div class="sidebar-search-content">
+                <div class="
+
+                sidebar-search-content">
                   <div class="form-group">
-                    <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+                  <%= select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" } %>
                   </div>
                   <div class="form-group">
-                    <%= f.text_field :sub_title, class: "form-control", placeholder: "サブタイトル：任意" %>
+                    <% text_field "", :keyword, class: "form-control", placeholder: "キーワード" %>
                   </div>
-                  <div class="form-group">
-                    <%= f.number_field :price, class: "form-control", placeholder: "希望販売価格" %>
-                  </div>
-                  <div class="form-group">
-                    <%= text_field_tag "book[category_list]", @book.category_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
-                  </div>
-                  <!--
-                   tagにplaceholderはつけられないので、labelで -->
-                  <div class="form-group">
-                    <%= f.text_field :description, class: "form-control", placeholder: "本の紹介文" %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.file_field :content,multiple: false, class: "form-control", placeholder: "画像アップロード" %>
-                  </div>
-                  <%= f.submit "出品する", class: "btn btn-primary btn-block" %>
+                  <%= submit_tag "検索", class: "btn btn-primary btn-block" %>
                 </div>
-              <% end %>
+              </div>
             </aside>
+          <% end %>
+        </div>
+          <div class="col-sm-8 col-md-9">
+            <div class="sorting-wrappper">
+              <div class="sorting-header">
+                <p class="sorting-lead"><%= @books.count %>件の検索結果が見つかりました。</p>
+              </div>
+            </div>
+            <div class="package-list-item-wrapper on-page-result-page clearfix">
+              <%= render partial:'books/searchedBook', collection: @books, as: :book %>
+            </div>
+            <div class="pager-wrappper clearfix">
+              <div class="pager-innner">
+                <div class="flex-row flex-align-middle">
+
+                  <div class="flex-column flex-sm-12">
+                    <nav class="pager-right">
+<!--                       <ul class="pagination">
+                        <li>
+                          <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">11</a></li>
+                        <li><a href="#">12</a></li>
+                        <li><a href="#">13</a></li>
+                        <li>
+                          <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul> -->
+                    </nav>
+                  </div>
+                </div>
+              </div>
+                <div class="flex-column flex-sm-12">
+                    <%= @books.count %>件中1から<%= @books.count %>件目を表示しています。
+                </div>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,8 +101,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-3">
             <div class="footer-logo">
-
-              <img src="<%= asset_path 'techbook_logo.png'%>" alt="Logo" />
+              <img src="images/techbook_logo.png" alt="Logo" />
             </div>
             <p class="footer-address">150-0000 東京都渋谷区道玄坂２丁目<br>新大宗ビル３号館８階<br/> <i class="fa fa-phone"></i> +66 28 878 5452 <br/> <i class="fa fa-phone"></i> +66 2 547 2223 <br/> <i class="fa fa-envelope-o"></i> <a href="#">support@techbook.com</a></p>
             <div class="footer-social">
@@ -119,3 +154,4 @@
 <script type="text/javascript" src="js/validator.min.js"></script>
 <script type="text/javascript" src="js/jquery.raty.js"></script> 
 <script type="text/javascript" src="js/customs.js"></script>
+
