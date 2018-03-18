@@ -14,7 +14,8 @@ class Book < ApplicationRecord
     (price + 200) * 1.08.round
   end
 
-  # def likes_user
-  #   likes.user.
-  # end
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
+
 end
