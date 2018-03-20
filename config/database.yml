@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: flea_market_production
-  username: flea_market
+  username: root
   password: 
