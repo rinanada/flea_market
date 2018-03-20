@@ -21,10 +21,36 @@
           </div>
         </div>
         <div class="absolute-in-content">
-          <span class="btn"><i class="fa fa-heart-o"></i></span>
+          <span class="btn">
+            <% if user_signed_in? %>
+              <% if book.like_user(current_user.id) %>
+                <%= link_to book_like_path(book.likes, book_id: book.id), method: :delete, id: "like-buttons", remote: true do %>
+                  <%= image_tag("icon_red_heart.jpg", class: "fa fa-heart-o") %>
+                <% end%>
+              <% else %>
+                <%= link_to book_likes_path(book),id: "like-buttons", method: :post, remote: true do %>
+                  <%= image_tag("icon_heart.png", class: "fa fa-heart-o") %>
+                <% end %>
+              <% end %>
+            <% else%>
+              <%= image_tag("icon_heart.png", class: "fa fa-heart-o") %>
+            <% end %>
+          </span>
           <div class="price"><%= book.price %></div>
         </div>
       </div>
   </div>
 </div>
+
+<style type="text/css">
+
+.fa-heart-o {
+  margin-top: 10px;
+  width: 20px;
+  height: 18px;
+}
+
+</style>
+
+
 

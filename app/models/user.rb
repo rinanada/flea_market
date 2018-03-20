@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :exhibits
   has_many :orders
+  has_many :likes, dependent: :destroy
   has_one :user_detail
 end

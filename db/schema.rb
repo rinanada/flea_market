@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317115134) do
+ActiveRecord::Schema.define(version: 20180318091050) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180317115134) do
     t.text     "description", limit: 65535
     t.string   "content"
     t.string   "sold?"
+    t.integer  "likes_count"
   end
 
   create_table "exhibits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -30,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180317115134) do
     t.integer  "book_id"
     t.index ["book_id"], name: "index_exhibits_on_book_id", using: :btree
     t.index ["user_id"], name: "index_exhibits_on_user_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.index ["book_id"], name: "index_likes_on_book_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
