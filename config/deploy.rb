@@ -27,16 +27,6 @@ namespace :deploy do
     end
   end
 
-   task :precompile do
-    on release_roles(fetch(:assets_roles)) do # set :assets_roles, [:web] されている
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-        execute :rake, "assets:precompile_without_digest"
-      end
-    end
-  end
-end
-
   desc 'Run seed'
   task :seed do
     on roles(:app) do
@@ -48,7 +38,7 @@ end
     end
   end
 
-  after :publishing, :restart
+  after :assets, :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
