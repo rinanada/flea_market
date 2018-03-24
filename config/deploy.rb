@@ -31,7 +31,7 @@ namespace :deploy do
     on release_roles(fetch(:assets_roles)) do # set :assets_roles, [:web] されている
       within release_path do
         with rails_env: fetch(:rails_env) do
-        execute :rake, "assets:precompile"
+        execute :rake, "assets:precompile_without_digest"
       end
     end
   end
