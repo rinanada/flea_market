@@ -12,3 +12,7 @@ require 'capistrano/rails/migrations'
 
 # taskを記述したファイルを読み込むよう設定。　場所と拡張子を指定。
 Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
+load 'deploy'
+load 'deploy/assets'
+load 'config/deploy'
+
