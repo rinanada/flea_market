@@ -5,10 +5,6 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets' 
 require 'capistrano/rails/migrations' 
 
-load 'deploy'
-load 'deploy/assets'
-load 'config/deploy'
-
 # require 'capistrano3/unicorn'
 # require 'capistrano/rvm'
 # require 'capistrano/chruby'
